@@ -1,5 +1,5 @@
-import { BsPlusSquareFill } from 'react-icons/bs';
+import { RiSearchFill } from 'react-icons/ri';
 
 export default function SearchFillIcon() {
-  return <BsPlusSquareFill className='w-7 h-7' />;
+  return <RiSearchFill className='w-7 h-7' />;
 }

@@ -1,5 +1,5 @@
-import { RiSearchLine } from 'react-icons/ri';
+import { BsPlusSquare } from 'react-icons/bs';
 
 export default function NewIcon() {
-  return <RiSearchLine className='w-7 h-7' />;
+  return <BsPlusSquare className='w-7 h-7' />;
 }
