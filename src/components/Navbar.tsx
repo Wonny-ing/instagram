@@ -51,15 +51,17 @@ export default function Navbar() {
           {user && (
             <li>
               <Link href={`/user/${user.username}`}>
-                <Avatar image={user.image} />
+                <Avatar image={user.image} size='small' highlight />
               </Link>
             </li>
           )}
-          {session ? (
-            <ColorButton text='Sigin out' onClick={() => signOut()} />
-          ) : (
-            <ColorButton text='Sigin in' onClick={() => signIn()} />
-          )}
+          <li>
+            {session ? (
+              <ColorButton text='Sigin out' onClick={() => signOut()} />
+            ) : (
+              <ColorButton text='Sigin in' onClick={() => signIn()} />
+            )}
+          </li>
         </ul>
       </nav>
     </div>
