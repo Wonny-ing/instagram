@@ -1,7 +1,6 @@
-import addUser from '@/service/user';
+import { addUser } from '@/service/user';
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import { signIn } from 'next-auth/react';
 
 const authOptions: NextAuthOptions = NextAuth({
   providers: [

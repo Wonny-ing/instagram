@@ -32,8 +32,8 @@ export default {
       type: 'array',
       of: [
         {
-          title: 'Likes',
-          name: 'likes',
+          title: 'Comment',
+          name: 'comment',
           type: 'document',
           fields: [
             {
@@ -50,7 +50,6 @@ export default {
           ],
         },
       ],
-      validation: (Rule) => Rule.unique(),
     },
   ],
   preview: {
