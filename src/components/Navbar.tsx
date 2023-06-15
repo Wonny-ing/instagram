@@ -7,7 +7,7 @@ import SearchFillIcon from './ui/icons/SearchFillIcon';
 import NewIcon from './ui/icons/NewIcon';
 import NewFillIcon from './ui/icons/NewFillIcon';
 import { usePathname } from 'next/navigation';
-import ColorButton from './ColorButton';
+import ColorButton from './ui/ColorButton';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Avatar from './Avatar';
 
