@@ -5,8 +5,8 @@ import HeartIcon from './ui/icons/HeartIcon';
 type Props = {
   likes: string[];
   username: string;
-  text: string;
   createdAt: string;
+  text?: string;
 };
 
 export default function ActionBar({ likes, username, text, createdAt }: Props) {

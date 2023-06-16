@@ -20,7 +20,7 @@ export default function FollowingBar() {
   // 4. 여기에서, 클라이언트 컴포넌트에서 followings의 정보를 UI에 보여줌
   //    (image, username)
   return (
-    <section className='w-full flex justify-center items-center p-4 shadow-md shadow-neutral-300 mb-4 rounded-lg min-h-[90px] overflow-x-auto'>
+    <section className='w-full flex justify-center items-center p-4 shadow-md shadow-neutral-300 mb-4 rounded-lg min-h-[90px] overflow-x-auto relative z-0'>
       {loading ? (
         <PropagateLoader color='red' size={8} />
       ) : (
