@@ -4,8 +4,8 @@ import { client } from './sanity';
 type OAuthUser = {
   id: string;
   email: string;
-  username: string;
   name: string;
+  username: string;
   image?: string | null;
 };
 
@@ -41,13 +41,12 @@ export async function searchUsers(keyword?: string) {
     : '';
   return client
     .fetch(
-      `
-  *[_type == "user" ${query}]{
-    ...,
-    "following": count(following),
-    "followers": count(followers),
-  }
-  `
+      `*[_type =="user" ${query}]{
+      ...,
+      "following": count(following),
+      "followers": count(followers),
+    }
+    `
     )
     .then((users) =>
       users.map((user: SearchUser) => ({
@@ -63,7 +62,7 @@ export async function getUserForProfile(username: string) {
     .fetch(
       `*[_type == "user" && username == "${username}"][0]{
       ...,
-      "id": _id,
+      "id":_id,
       "following": count(following),
       "followers": count(followers),
       "posts": count(*[_type=="post" && author->username == "${username}"])
@@ -76,4 +75,24 @@ export async function getUserForProfile(username: string) {
       followers: user.followers ?? 0,
       posts: user.posts ?? 0,
     }));
+}
+
+export async function addBookmark(userId: string, postId: string) {
+  return client
+    .patch(userId) //
+    .setIfMissing({ bookmarks: [] })
+    .append('bookmarks', [
+      {
+        _ref: postId,
+        _type: 'reference',
+      },
+    ])
+    .commit({ autoGenerateArrayKeys: true });
+}
+
+export async function removeBookmark(userId: string, postId: string) {
+  return client
+    .patch(userId)
+    .unset([`bookmarks[_ref=="${postId}"]`])
+    .commit();
 }
